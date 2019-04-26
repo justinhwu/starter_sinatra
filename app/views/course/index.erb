@@ -1,0 +1,20 @@
+<h1>Here is a list of our courses!</h1>
+<ul>
+  <% @courses.sort.each do |course| %>
+    <li>
+      <a href=<%="/courses/#{course.id}"%>>
+      <%= "#{course.subject} #{course.course_number}"%>
+      </a>
+    </li>
+
+  <% end %>
+
+</ul>
+
+<form action="/courses/new" method="get">
+    <input type="submit" value="Create a new course"/>
+</form>
+
+<form action="/" method="get">
+    <input type="submit" value="Go back to the FlatIron School homepage"/>
+</form>

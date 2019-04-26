@@ -1,0 +1,32 @@
+<h1> Create a new course! </h1>
+
+<form action='/courses' method='POST'>
+
+  <div class="Course">
+  <label for='name'>Name:</label>
+  <input type='text' name='course[name]' value='Enter a name'><br>
+
+  <label for='subject'>Subject:</label>
+  <input type='text' name='course[subject]' value='Enter a subject'><br>
+
+  <label for='course_number'>Course Number:</label>
+  <input type='number' name='course[course_number]' value='Enter a course number'><br>
+
+  <label for='description'>Description:</label>
+  <input type='text' name='course[description]' value='Enter a description'><br>
+
+  <select name="instructor[id]">
+    <% Instructor.all.each do |instructor| %>
+      <option value="<%=instructor.id%>"> <%="#{instructor.first_name} #{instructor.last_name}"%> </option>
+    <% end %>
+  </select>
+
+  </div>
+
+  <input type='submit' value='Create Course'>
+
+  </form>
+
+  <form action="/courses" method="get">
+      <input type="submit" value="Go back to the list of courses"/>
+  </form>

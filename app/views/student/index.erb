@@ -1,0 +1,20 @@
+<h1>Here is a list of our students!</h1>
+<ul>
+  <% @students.sort.each do |student| %>
+    <li>
+      <a href=<%="/students/#{student.id}"%>>
+      <%= "#{student.first_name} #{student.last_name}"%>
+      </a>
+    </li>
+
+  <% end %>
+
+</ul>
+
+<form action="/students/new" method="get">
+    <input type="submit" value="Create a new student"/>
+</form>
+
+<form action="/" method="get">
+    <input type="submit" value="Go back to the FlatIron School homepage"/>
+</form>

@@ -1,0 +1,35 @@
+<h1>Edit Student Details!</h1>
+<form action='/students/<%= @student.id%>' method='POST'>
+  <input type="hidden" name="_method" value="patch">
+
+
+  <label for='first_name'>First Name:</label>
+  <input type='text' name='student[first_name]' value="<%= @student.first_name%>"><br>
+
+  <label for='last_name'>Last Name:</label>
+  <input type='text' name='student[last_name]' value="<%= @student.last_name%>"><br>
+
+  <label for='year'>Year:</label>
+  <input type='text' name='student[year]' value="<%= @student.year%>"><br>
+
+  <label for='address'>Address:</label>
+  <input type='text' name='student[address]' value="<%= @student.address%>"><br>
+
+  <label for='email'>Email:</label>
+  <input type='text' name='student[email]' value="<%= @student.email%>"><br>
+
+  <label for='phone_number'>Phone Number:</label>
+  <input type='text' name='student[phone_number]' value="<%= @student.phone_number%>"><br>
+
+
+  <% Course.all.each do |course| %>
+    <input type='checkbox' name='course[id][]' value="<%=course.id%>"> <%="#{course.subject} #{course.course_number}"%> <br>
+  <% end %>
+
+  <input type='submit' value='Update Student'>
+
+  </form>
+
+  <form action="/students" method="get">
+      <input type="submit" value="Go back to the list of students"/>
+  </form>

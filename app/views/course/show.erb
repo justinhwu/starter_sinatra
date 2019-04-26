@@ -1,0 +1,29 @@
+<h1> <%= "#{@course.subject} #{@course.course_number}: #{@course.name}" %> </h1>
+
+<b><label for='description' >Description: </label></b> <%= @course.description %>  <br>
+
+<b><label for='instructor'>Instructor: </label></b> <%= "#{@course.instructor.first_name} #{@course.instructor.last_name}" %> <br>
+
+<b><label for='students'>Students: </label></b>
+
+<ol>
+<% @course.students.each do |student| %>
+ <li> <a href="/students/<%=student.id %>">
+   <%= "#{student.first_name} #{student.last_name}" %>
+   </a><br></li>
+<% end %>
+</ol>
+
+<form action="/courses/<%=@course.id%>/edit" method="get">
+    <input type="submit" value="Edit this course"/>
+</form>
+
+<form action="/courses/<%= @course.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete this course"
+       name="Submit" />
+</form>
+
+<form action="/courses" method="get">
+    <input type="submit" value="Go back to the list of courses"/>
+</form>

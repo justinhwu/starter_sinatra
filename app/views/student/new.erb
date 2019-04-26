@@ -1,0 +1,35 @@
+<h1> Create a new student! </h1>
+
+<form action='/students' method='POST'>
+
+  <div class="Student">
+  <label for='first_name'>First Name:</label>
+  <input type='text' name='student[first_name]' value='Enter a first name'><br>
+
+  <label for='last_name'>Last Name:</label>
+  <input type='text' name='student[last_name]' value='Enter a last name'><br>
+
+  <label for='year'>Year:</label>
+  <input type='text' name='student[year]' value='Enter your year standing'><br>
+
+  <label for='address'>Address:</label>
+  <input type='text' name='student[address]' value='Enter your address'><br>
+
+  <label for='email'>Email:</label>
+  <input type='text' name='student[email]' value='Enter a email'><br>
+
+  <label for='phone_number'>Phone Number:</label>
+  <input type='text' name='student[phone_number]' value='Enter a phone number'><br>
+  </div>
+
+  <% Course.all.each do |course| %>
+    <input type='checkbox' name='id[]' value="<%=course.id%>"> <%="#{course.subject} #{course.course_number}"%> <br>
+  <% end %>
+
+  <input type='submit' value='Create Student'>
+
+  </form>
+
+  <form action="/students" method="get">
+      <input type="submit" value="Go back to the list of students"/>
+  </form>

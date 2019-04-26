@@ -1,0 +1,20 @@
+<h1>Here is a list of our instructors!</h1>
+<ul>
+  <% @instructors.sort.each do |instructor| %>
+    <li>
+      <a href=<%="/instructors/#{instructor.id}"%>>
+      <%= "#{instructor.first_name} #{instructor.last_name}"%>
+      </a>
+    </li>
+
+  <% end %>
+
+</ul>
+
+<form action="/instructors/new" method="get">
+    <input type="submit" value="Create a new instructor"/>
+</form>
+
+<form action="/" method="get">
+    <input type="submit" value="Go back to the FlatIron School homepage"/>
+</form>

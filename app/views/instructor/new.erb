@@ -1,0 +1,20 @@
+<h1> Create a new instructor! </h1>
+
+<form action='/instructors' method='POST'>
+
+  <div class="Instructor">
+  <label for='first_name'>First Name:</label>
+  <input type='text' name='instructor[first_name]' value='Enter a first name'><br>
+
+  <label for='last_name'>Last Name:</label>
+  <input type='text' name='instructor[last_name]' value='Enter a last name'><br>
+
+  </div>
+
+  <input type='submit' value='Create Instructor'>
+
+  </form>
+
+  <form action="/instructors" method="get">
+      <input type="submit" value="Go back to the list of instructors"/>
+  </form>

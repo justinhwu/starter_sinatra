@@ -1,0 +1,35 @@
+<h1>Edit Course Details</h1>
+<form method='post' action="/courses/<%= @course.id%>">
+  <input type="hidden" name="_method" value="patch">
+
+  <label for='name'>Name:</label>
+  <input type='text' name='course[name]' value='<%= @course.name%>'><br>
+
+  <label for='subject'>Subject:</label>
+  <input type='text' name='course[subject]' value='<%= @course.subject%>'><br>
+
+  <label for='course_number'>Course Number:</label>
+  <input type='number' name='course[course_number]' value='<%= @course.course_number%>'><br>
+
+  <label for='description'>Description:</label>
+  <input type='text' name='course[description]' value='<%= @course.description%>'><br>
+
+  <label for='current_instructor'>The Current Instructor for this Course is:</label><br>
+    <%= "#{@course.instructor.first_name} #{@course.instructor.last_name}" %><br>
+
+  <label for='new_instructor'>If you would like to change the instructor, please select a different instructor from this drop-down menu. Otherwise, please select the same instructor.</label><br>
+  <select name="instructor[id]">
+    <% Instructor.all.each do |instructor| %>
+      <option value="<%=instructor.id%>"> <%="#{instructor.first_name} #{instructor.last_name}"%> </option>
+    <% end %>
+  </select><br>
+
+  <input type='submit' value='Update Course'>
+
+
+
+  <form action="/courses" method="get">
+      <input type="submit" value="Go back to the list of courses"/>
+  </form>
+
+  </form>
